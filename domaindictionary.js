@@ -6,8 +6,9 @@ fs.readFile('test.txt', "utf-8", (err, data) => {
     const emailRegex = /@[a-zA-Z0-9.-]+/;
     let emailDict = {};
   
-    for(let i=0; i<emails.length; i++) {
-        let email = emails[i];     
+  //  for(let i=0; i<emails.length; i++) {
+  //      let email = emails[i];  
+    for(let email of emails) {   
         let domain = "";
         if(email.match(emailRegex)) domain = email.match(emailRegex)[0].substring(1);
         if (emailDict[domain]) emailDict[domain]++;
