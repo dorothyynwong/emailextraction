@@ -8,7 +8,7 @@ fs.readFile('test.txt', (err, data) => {
     for(let i=0; i<emails.length; i++) {
         // console.log(emails[i]);
         for (let j = 0; j < emails[i].length; j++) {
-            if ((emails[i].substring(i, 13) === "@softwire.com")) {
+            if ((emails[i].substring(j, 13) === "@softwire.com")) { ///
                 console.log(emails[i]);
                 counter++;
             }
