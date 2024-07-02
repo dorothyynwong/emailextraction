@@ -17,12 +17,10 @@ fs.readFile('test.txt', "utf-8", (err, data) => {
     const sortedDict = Object.fromEntries(
         Object.entries(emailDict).sort(([,a],[,b]) => b-a)
     );
-
-    let count = 0;
-    for(let entry of Object.entries(sortedDict)) {
+    
+    for(let i=0; i<10; i++) {
+        let entry = Object.entries(sortedDict)[i];
         console.log(entry[0]);
-        count++;
-        if (count === 10) break;
     }
 });
 
