@@ -1,7 +1,7 @@
 const fs = require('fs');
-fs.readFile('test2.txt', "utf-8", (err, data) => {
+fs.readFile('test.txt', "utf-8", (err, data) => {
     if (err) throw err;
-    const emails = data.toString().split(" ");
+    const emails = data.toString().split(/[\s\r\n]+/);
 
     let counter = 0;
     const regex = /^[a-zA-Z0-9.'_%+-]+@softwire\.com$/;
@@ -9,17 +9,13 @@ fs.readFile('test2.txt', "utf-8", (err, data) => {
     for(let i=0; i<emails.length; i++) {
         let email = emails[i];
         let len = email.length;
-        // console.log(email);
-          
-       // if((email.match(regex))) {
-       console.log(`len - 13: ${(len - 13)}, len: ${len}`);
-       console.log(`email: ${email}, substring: ${email.substring(len-13, len)}`);
-    //        if(email.substring(len-13, len) === "@softwire.com") {
-    //             counter++;
-    //             console.log("Match",email);
-    //     }
+    
+      // part 1 if(email.substring(len-13, len) === "@softwire.com") {     
+        if((email.match(regex))) { //part 2  
+                 counter++;
+       }
 
     }
-    // console.log(counter);
+    console.log(counter);
 });
 
